@@ -37,3 +37,9 @@ commands:
         arg: url
         help: Base URL for thread links
         default: https://spring-plus.net/
+  - name: notify
+    help: Read a JSON title/thread array from stdin and output matching titles
+    dependencies: [jq]
+    environment_variables:
+      - name: PNA_WATCH_LIST
+        help: Newline-separated, case-sensitive literal keywords
