@@ -31,7 +31,7 @@ commands:
       - long: --output-format
         arg: format
         help: Output format (text is tab-separated)
-        default: text
+        default: json
         allowed: [text, json]
       - long: --base-url
         arg: url
