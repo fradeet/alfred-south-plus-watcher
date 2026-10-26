@@ -204,6 +204,27 @@ No Alfred keyword or action is configured yet.</string>
 			<key>variable</key>
 			<string>SOUTH_USER_AGENT</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+				<key>verticalsize</key>
+				<integer>6</integer>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Watch keyword</string>
+			<key>type</key>
+			<string>textarea</string>
+			<key>variable</key>
+			<string>PNA_WATCH_LIST</string>
+		</dict>
 	</array>
 	<key>version</key>
 	<string>0.1.0</string>
