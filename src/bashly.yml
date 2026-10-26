@@ -1,5 +1,5 @@
-name: template-cli
-help: Example CLI for an Alfred workflow
+name: play-new-asmr-cli
+help: Fetch and parse forum threads for Play New ASMR
 version: 0.1.0
 
 dependencies:

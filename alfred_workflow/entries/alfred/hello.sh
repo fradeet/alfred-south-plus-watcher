@@ -10,7 +10,7 @@ if [[ $alfred_debug ]]; then
     other_args+=(-vv)
 fi
 
-if ! result=$("$workflow_dir/template-cli" "${other_args[@]}" hello); then
+if ! result=$("$workflow_dir/play-new-asmr-cli" "${other_args[@]}" hello); then
   alfred_default_error
   exit 1
 fi

@@ -1,5 +1,5 @@
 /*.alfredworkflow
-/template-cli
+/play-new-asmr-cli
 .DS_Store
-alfred_workflow/template-cli
+alfred_workflow/play-new-asmr-cli
 alfred_workflow/.sync.ffs_db

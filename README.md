@@ -1,23 +1,4 @@
-# Alfred Bashly Template
-
-A minimal template that connects a Bashly CLI to an Alfred Script Filter. Type `hello` in Alfred to see **Hello Alfred**.
-
-## Initial setup
-
-After creating a repository from this template, use **case-sensitive Replace All** in your editor for each name below. For example, to name the workflow “My Workflow”:
-
-| Capitalization | Find | Replace with |
-| --- | --- | --- |
-| Lowercase repository slug | `alfred-workflow-template-sh` | `my-workflow` |
-| Lowercase CLI name | `template-cli` | `my-workflow-cli` |
-| Title case display name | `Alfred Bashly Template` | `My Workflow` |
-| Bundle ID | `com.example.alfred-bashly-template` | `com.example.my-workflow` |
-
-The CLI name appears in `src/bashly.yml`, both sync and package scripts, the Alfred entry script, `.gitignore`, and this README. The display name appears in both READMEs, `alfred_workflow/info.plist`, and the package script. Choose a unique bundle ID for your workflow. Rename the repository directory separately.
-
-If you add other forms of the CLI name, replace each capitalization separately: `TEMPLATE_CLI` → `MY_WORKFLOW_CLI` (all uppercase), `template_cli` → `my_workflow_cli` (all lowercase), `Template-cli` → `My-workflow-cli` (first letter uppercase), and `TemplateCli` → `MyWorkflowCli` (Pascal case). These forms are examples; the current scripts use `template-cli`.
-
-After replacing the names, follow the development steps below to generate the renamed CLI and update the workflow.
+# Play New ASMR
 
 ## Dependencies
 
@@ -34,7 +15,7 @@ Fetch a forum page and parse its thread list:
 
 ```bash
 export SOUTH_WINDUSER='your winduser Cookie value'
-./template-cli get-html | ./template-cli parse-thread-list --output-format json
+./play-new-asmr-cli get-html | ./play-new-asmr-cli parse-thread-list --output-format json
 ```
 
 `get-html --url URL` writes HTML to stdout. It uses a browser User-Agent;
@@ -47,8 +28,8 @@ text; `--output-format json` produces a JSON array with `title`,
 Dates have day precision. Use `--base-url URL` for links on another domain.
 
 ```bash
-./template-cli get-html > page.html
-./template-cli parse-thread-list --output-format json < page.html > threads.json
+./play-new-asmr-cli get-html > page.html
+./play-new-asmr-cli parse-thread-list --output-format json < page.html > threads.json
 ```
 
 ## Development
