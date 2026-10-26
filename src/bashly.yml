@@ -1,0 +1,16 @@
+name: template-cli
+help: Example CLI for an Alfred workflow
+version: 0.1.0
+
+dependencies:
+  - jq
+
+flags:
+  - long: --verbose
+    short: -v
+    help: Show diagnostic messages on stderr
+    repeatable: true
+
+commands:
+  - name: hello
+    help: Output a Hello result for Alfred

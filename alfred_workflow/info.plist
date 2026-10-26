@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.example.alfred-bashly-template</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict/>
+	<key>createdby</key>
+	<string>Template Author</string>
+	<key>description</key>
+	<string>A minimal Bashly Script Filter example.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Alfred Bashly Template</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>hello</string>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>entries/alfred/hello.sh</string>
+				<key>subtext</key>
+				<string>Show a Hello result</string>
+				<key>title</key>
+				<string>Hello Alfred</string>
+				<key>type</key>
+				<integer>8</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>94986F9F-55CD-4720-91A0-85D04E43A12C</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Alfred Bashly Template
+
+## Usage
+
+Type `hello` in Alfred to see **Hello Alfred**. This result demonstrates a Script Filter and has no action attached.
+
+## Requirements
+
+- Alfred Powerpack
+- Bash
+- `jq` (for example, install it with `brew install jq`)
+
+If no result appears, check Alfred's workflow debugger. See the repository README for development and packaging instructions.</string>
+	<key>uidata</key>
+	<dict>
+		<key>94986F9F-55CD-4720-91A0-85D04E43A12C</key>
+		<dict>
+			<key>xpos</key>
+			<real>40</real>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
