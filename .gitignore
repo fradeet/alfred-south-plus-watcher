@@ -2,3 +2,4 @@
 /template-cli
 .DS_Store
 alfred_workflow/template-cli
+alfred_workflow/.sync.ffs_db
