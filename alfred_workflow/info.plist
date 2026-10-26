@@ -34,6 +34,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>55569781-8A24-4DFA-A8DC-81F18EC342A5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>fradeet</string>
@@ -106,6 +119,29 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>entries/alfred/notify.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>## Usage
@@ -135,6 +171,15 @@ No Alfred keyword or action is configured yet.</string>
 			<string>Parse JSON</string>
 			<key>xpos</key>
 			<real>445</real>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
+		<key>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</key>
+		<dict>
+			<key>note</key>
+			<string>Notify</string>
+			<key>xpos</key>
+			<real>665</real>
 			<key>ypos</key>
 			<real>30</real>
 		</dict>
