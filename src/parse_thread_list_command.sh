@@ -57,7 +57,7 @@
     header=$(htmlq -f "$work/page.html" --text '#ajaxtable tr.tr2')
     [[ $header == *文章* && $header == *作者* ]] || south_error 'Unrecognized thread-list layout.'
   fi
-  jq -sr --arg format "${args[--output-format]}" '
+  jq -csr --arg format "${args[--output-format]}" '
     if $format == "json" then .
     else .[] | [.title, .published_date, .thread_type, .pin_level, .url] | @tsv
     end
