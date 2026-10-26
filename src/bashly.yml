@@ -12,8 +12,6 @@ flags:
     repeatable: true
 
 commands:
-  - name: hello
-    help: Output a Hello result for Alfred
   - name: get-html
     help: Fetch a forum page and output HTML
     flags:
