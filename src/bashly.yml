@@ -14,3 +14,22 @@ flags:
 commands:
   - name: hello
     help: Output a Hello result for Alfred
+  - name: get-html
+    help: Fetch a forum page and output HTML
+    flags:
+      - long: --url
+        arg: url
+        help: Page URL
+        default: https://spring-plus.net/thread.php?fid-208.html
+  - name: parse-thread-list
+    help: Read HTML from stdin and output thread titles, dates and types
+    flags:
+      - long: --output-format
+        arg: format
+        help: Output format (text is tab-separated)
+        default: text
+        allowed: [text, json]
+      - long: --base-url
+        arg: url
+        help: Base URL for thread links
+        default: https://spring-plus.net/
