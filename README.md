@@ -11,27 +11,6 @@
 
 For keywords and instructions inside Alfred, see the [workflow README](alfred_workflow/README.md).
 
-Fetch a forum page and parse its thread list:
-
-```bash
-export SOUTH_WINDUSER='your winduser Cookie value'
-./play-new-asmr-cli get-html | ./play-new-asmr-cli parse-thread-list --output-format json
-```
-
-`get-html --url URL` writes HTML to stdout. It uses a browser User-Agent;
-`SOUTH_USER_AGENT` overrides it. Set `SOUTH_COOKIE_FILE` to use a Netscape-format
-Cookie file instead of `SOUTH_WINDUSER`.
-
-`parse-thread-list` reads HTML from stdin. Its default output is tab-separated
-text; `--output-format json` produces a JSON array with `title`,
-`published_date`, `thread_type` (`normal` or `pinned`), `pin_level`, and `url`.
-Dates have day precision. Use `--base-url URL` for links on another domain.
-
-```bash
-./play-new-asmr-cli get-html > page.html
-./play-new-asmr-cli parse-thread-list --output-format json < page.html > threads.json
-```
-
 ## Development
 
 ### Bashly CLI
