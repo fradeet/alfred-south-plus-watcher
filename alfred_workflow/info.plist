@@ -5,9 +5,36 @@
 	<key>bundleid</key>
 	<string>top.fradeet.play-new-asmr</string>
 	<key>category</key>
-	<string>Tools</string>
+	<string>Internet</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>55569781-8A24-4DFA-A8DC-81F18EC342A5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>3BA11452-8344-4814-B477-0B224A469142</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>fradeet</string>
 	<key>description</key>
@@ -17,16 +44,170 @@
 	<key>name</key>
 	<string>Play New ASMR</string>
 	<key>objects</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
+				<key>triggerid</key>
+				<string>get-new</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>3BA11452-8344-4814-B477-0B224A469142</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>entries/alfred/parse_thread_list.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>55569781-8A24-4DFA-A8DC-81F18EC342A5</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>entries/alfred/get_html.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
 	<key>readme</key>
 	<string>## Usage
 
 No Alfred keyword or action is configured yet.</string>
 	<key>uidata</key>
-	<dict/>
+	<dict>
+		<key>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</key>
+		<dict>
+			<key>note</key>
+			<string>Get thread HTML</string>
+			<key>xpos</key>
+			<real>225</real>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
+		<key>3BA11452-8344-4814-B477-0B224A469142</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
+		<key>55569781-8A24-4DFA-A8DC-81F18EC342A5</key>
+		<dict>
+			<key>note</key>
+			<string>Parse JSON</string>
+			<key>xpos</key>
+			<real>445</real>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
+	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>000000....</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>wind user Cookie</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>SOUTH_WINDUSER</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>filtermode</key>
+				<integer>2</integer>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+			</dict>
+			<key>description</key>
+			<string>(Optional)</string>
+			<key>label</key>
+			<string>Cookie file</string>
+			<key>type</key>
+			<string>filepicker</string>
+			<key>variable</key>
+			<string>SOUTH_COOKIE_FILE</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>User Agent</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>SOUTH_USER_AGENT</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string>0.1.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/fradeet/alfred-south-plus-watcher</string>
 </dict>
 </plist>
