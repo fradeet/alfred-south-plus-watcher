@@ -20,12 +20,14 @@ flags:
     repeatable: true
 
 commands:
-  - name: parse-thread-list
-    help: Read HTML from stdin and output thread titles, dates and types
-    dependencies: [htmlq, jq]
-    flags:
-      - long: --output-format
-        arg: format
-        help: Output format (alfred_json sets alfredworkflow.arg to URL-tab-title strings; text is tab-separated)
-        default: alfred_json
-        allowed: [text, json, alfred_json]
+  - name: forum
+    commands:
+      - name: view
+        help: View a subforum thread
+        args:
+        - name: forum_id
+          required: true
+        flags:
+          - long: --output-format
+            allowed: [alfred-json]
+            required: true
