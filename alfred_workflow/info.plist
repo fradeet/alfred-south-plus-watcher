@@ -47,6 +47,32 @@
 				<false/>
 			</dict>
 		</array>
+		<key>72BEAB88-DC25-46E8-86F5-BDC3CA01C229</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1C12175E-3714-454B-9330-F345D7BDD0F3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>fradeet</string>
@@ -142,6 +168,50 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>ASMR Spoted!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1C12175E-3714-454B-9330-F345D7BDD0F3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>get watch asmr</string>
+				<key>skipuniversalaction</key>
+				<true/>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Get Watch ASMR</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>72BEAB88-DC25-46E8-86F5-BDC3CA01C229</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>## Usage
@@ -149,6 +219,13 @@
 No Alfred keyword or action is configured yet.</string>
 	<key>uidata</key>
 	<dict>
+		<key>1C12175E-3714-454B-9330-F345D7BDD0F3</key>
+		<dict>
+			<key>xpos</key>
+			<real>885</real>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
 		<key>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</key>
 		<dict>
 			<key>note</key>
@@ -173,6 +250,13 @@ No Alfred keyword or action is configured yet.</string>
 			<real>445</real>
 			<key>ypos</key>
 			<real>30</real>
+		</dict>
+		<key>72BEAB88-DC25-46E8-86F5-BDC3CA01C229</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>180</real>
 		</dict>
 		<key>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</key>
 		<dict>
