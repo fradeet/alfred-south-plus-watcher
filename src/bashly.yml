@@ -3,8 +3,15 @@ help: Fetch and parse forum threads for Play New ASMR
 version: 0.1.0
 
 environment_variables:
-  - name: SOUTH_BASE_URL
+  - name: SP_BASE_URL
     help: Shared forum base URL (default https://spring-plus.net/)
+    default: https://spring-plus.net
+  - name: SP_COOKIE_FILE
+    help: Netscape-format Cookie file; takes precedence over SP_WINDUSER
+  - name: SP_USER_AGENT
+    help: Override the default browser User-Agent
+  - name: SP_WINDUSER
+    help: Value of the eb9e6_winduser login Cookie
 
 flags:
   - long: --verbose
