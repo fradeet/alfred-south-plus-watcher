@@ -26,11 +26,8 @@ commands:
     flags:
       - long: --fid
         arg: id
-        help: Subforum ID (used when --url is omitted)
+        help: Subforum ID
         default: '208'
-      - long: --url
-        arg: url
-        help: HTTPS page URL
   - name: parse-thread-list
     help: Read HTML from stdin and output thread titles, dates and types
     dependencies: [htmlq, jq]

@@ -14,7 +14,7 @@ For keywords and instructions inside Alfred, see the [workflow README](alfred_wo
 ## Development
 
 Fetch a specific subforum with `play-new-asmr-cli get-html --fid 128`.
-The default subforum ID is `208`; `--url` overrides the subforum URL.
+The default subforum ID is `208`. Set `SOUTH_BASE_URL` to change the forum base URL.
 
 ### Bashly CLI
 
