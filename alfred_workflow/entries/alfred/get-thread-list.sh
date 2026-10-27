@@ -11,7 +11,6 @@ if [[ $alfred_debug ]]; then
 fi
 
 if ! result=$("$workflow_dir/south-plus-cli" "${other_args[@]}" forum view --output-format alfred-json -- 128); then
-  alfred_default_error
   exit 1
 fi
 
