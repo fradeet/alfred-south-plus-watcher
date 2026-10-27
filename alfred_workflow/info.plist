@@ -25,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>15934CBD-00D3-454F-A5A2-CEC6618186D6</string>
+				<string>8F268EC4-D5DA-4B5D-A975-F172AAEA9E3B</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -52,6 +52,31 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8F268EC4-D5DA-4B5D-A975-F172AAEA9E3B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>15934CBD-00D3-454F-A5A2-CEC6618186D6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>054E1E47-5F84-4A97-9A08-856CA952B8E9</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C6966DB4-EEFB-463B-B51B-A354869EFE63</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -97,6 +122,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
+				<key>triggerid</key>
+				<string>get-new</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>3BA11452-8344-4814-B477-0B224A469142</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -116,21 +156,6 @@
 			<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>availableviaurlhandler</key>
-				<false/>
-				<key>triggerid</key>
-				<string>get-new</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.external</string>
-			<key>uid</key>
-			<string>3BA11452-8344-4814-B477-0B224A469142</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -156,6 +181,38 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>success</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>5</integer>
+						<key>matchstring</key>
+						<string></string>
+						<key>outputlabel</key>
+						<string>ok</string>
+						<key>uid</key>
+						<string>054E1E47-5F84-4A97-9A08-856CA952B8E9</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>8F268EC4-D5DA-4B5D-A975-F172AAEA9E3B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -173,6 +230,25 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>72BEAB88-DC25-46E8-86F5-BDC3CA01C229</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>error-output</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>top.fradeet.error.interal</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>C6966DB4-EEFB-463B-B51B-A354869EFE63</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -219,6 +295,20 @@ No Alfred keyword or action is configured yet.</string>
 		<dict>
 			<key>xpos</key>
 			<real>30</real>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>8F268EC4-D5DA-4B5D-A975-F172AAEA9E3B</key>
+		<dict>
+			<key>xpos</key>
+			<real>365</real>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>C6966DB4-EEFB-463B-B51B-A354869EFE63</key>
+		<dict>
+			<key>xpos</key>
+			<real>445</real>
 			<key>ypos</key>
 			<real>180</real>
 		</dict>

@@ -27,6 +27,21 @@ And generate the CLI to `alfred_workflow/`.
 ./script/sync-cli.sh
 ```
 
+`forum view --output-format alfred-json` returns an `alfredworkflow` object.
+On success, `arg` is an array of URL-tab-title strings (or `[]` for an empty
+forum), and `variables` contains `success: true` and `error_msg: ""`.
+Business errors return `arg: ""`, `success: false`, and an error message in
+`variables.error_msg`, with exit status 1. Diagnostics remain on stderr.
+Argument validation and dependency errors retain Bashly's usual error output.
+The Alfred entry script forwards the CLI output and exit status unchanged.
+
+After generating the CLI, run the local regression checks without network access
+or real cookies:
+
+```bash
+python3 -m unittest discover -s tests
+```
+
 ### Alfred Workflow
 
 Install the `alfred_workflow` folder as an Alfred workflow using whichever method you prefer.
