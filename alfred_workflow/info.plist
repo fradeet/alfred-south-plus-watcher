@@ -9,18 +9,7 @@
 	<key>connections</key>
 	<dict>
 		<key>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>55569781-8A24-4DFA-A8DC-81F18EC342A5</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
+		<array/>
 		<key>3BA11452-8344-4814-B477-0B224A469142</key>
 		<array>
 			<dict>
@@ -34,37 +23,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>55569781-8A24-4DFA-A8DC-81F18EC342A5</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>72BEAB88-DC25-46E8-86F5-BDC3CA01C229</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>1C12175E-3714-454B-9330-F345D7BDD0F3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -111,30 +74,7 @@
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string>entries/alfred/parse_thread_list.sh</string>
-				<key>type</key>
-				<integer>8</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>55569781-8A24-4DFA-A8DC-81F18EC342A5</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string></string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>entries/alfred/get_html.sh</string>
+				<string>entries/alfred/get-thread-list.sh</string>
 				<key>type</key>
 				<integer>8</integer>
 			</dict>
@@ -142,29 +82,6 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string></string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>entries/alfred/notify.sh</string>
-				<key>type</key>
-				<integer>8</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -242,30 +159,12 @@ No Alfred keyword or action is configured yet.</string>
 			<key>ypos</key>
 			<real>30</real>
 		</dict>
-		<key>55569781-8A24-4DFA-A8DC-81F18EC342A5</key>
-		<dict>
-			<key>note</key>
-			<string>Parse JSON</string>
-			<key>xpos</key>
-			<real>445</real>
-			<key>ypos</key>
-			<real>30</real>
-		</dict>
 		<key>72BEAB88-DC25-46E8-86F5-BDC3CA01C229</key>
 		<dict>
 			<key>xpos</key>
 			<real>30</real>
 			<key>ypos</key>
 			<real>180</real>
-		</dict>
-		<key>EB5DFF1C-4187-4E9E-A161-A220C4ED7E7A</key>
-		<dict>
-			<key>note</key>
-			<string>Notify</string>
-			<key>xpos</key>
-			<real>665</real>
-			<key>ypos</key>
-			<real>30</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -289,7 +188,7 @@ No Alfred keyword or action is configured yet.</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
-			<string>SOUTH_WINDUSER</string>
+			<string>SP_WINDUSER</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -310,7 +209,7 @@ No Alfred keyword or action is configured yet.</string>
 			<key>type</key>
 			<string>filepicker</string>
 			<key>variable</key>
-			<string>SOUTH_COOKIE_FILE</string>
+			<string>SP_COOKIE_FILE</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -331,7 +230,7 @@ No Alfred keyword or action is configured yet.</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
-			<string>SOUTH_USER_AGENT</string>
+			<string>SP_USER_AGENT</string>
 		</dict>
 		<dict>
 			<key>config</key>
