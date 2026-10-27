@@ -1,6 +1,6 @@
 /*.alfredworkflow
-/play-new-asmr-cli
+/south-plus-cli
 .DS_Store
-alfred_workflow/play-new-asmr-cli
+alfred_workflow/south-plus-cli
 alfred_workflow/.sync.ffs_db
 __pycache__/

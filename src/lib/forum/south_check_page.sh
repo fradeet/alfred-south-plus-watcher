@@ -1,15 +1,3 @@
-south_error() {
-  printf 'Error: %s\n' "$*" >&2
-  exit 1
-}
-
-south_base_url() {
-  local base=${SOUTH_BASE_URL:-https://spring-plus.net/}
-  [[ $base =~ ^https?://[a-zA-Z0-9.-]+(:[0-9]+)?(/[^[:space:]?#]*)?$ ]] ||
-    south_error 'SOUTH_BASE_URL must be an HTTP(S) base URL without credentials, whitespace, query or fragment.'
-  printf '%s/\n' "${base%/}"
-}
-
 south_check_page() {
   local page=$1 title login challenge
   [[ -n $page ]] || south_error 'The HTML input is empty.'

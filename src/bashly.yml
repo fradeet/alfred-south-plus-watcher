@@ -26,13 +26,16 @@ flags:
 
 commands:
   - name: forum
+    help: Browse forums
     commands:
       - name: view
-        help: View a subforum thread
+        help: View threads in a subforum
         args:
-        - name: forum_id
-          required: true
+          - name: forum_id
+            help: Subforum ID (fid=*)
+            required: true
         flags:
           - long: --output-format
+            arg: format
             allowed: [alfred-json]
             required: true

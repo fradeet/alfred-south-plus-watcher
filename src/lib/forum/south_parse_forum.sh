@@ -1,8 +1,7 @@
-(
-  set -euo pipefail
+south_parse_forum() {
+  local page=$1 base table ids links issue threads id tid cell title date url marker type level thread header
   base=$(south_base_url)
-  page=$(cat)
-  south_check_page "$page"
+  verbose_log "Parsing forum threads"
   table=$(htmlq --attribute id 'table#ajaxtable' <<< "$page")
   [[ $table == ajaxtable ]] || south_error 'No PHPWind thread-list table was found.'
   ids=$(htmlq --attribute id '#ajaxtable tr.tr3 a[id^="a_ajax_"]' <<< "$page")
@@ -56,10 +55,5 @@
     header=$(htmlq --text '#ajaxtable tr.tr2' <<< "$page")
     [[ $header == *文章* && $header == *作者* ]] || south_error 'Unrecognized thread-list layout.'
   fi
-  jq -csr --arg format "${args[--output-format]}" '
-    if $format == "alfred_json" then {alfredworkflow: {arg: map(.url + "\t" + .title)}}
-    elif $format == "json" then .
-    else .[] | [.title, .published_date, .thread_type, .pin_level, .url] | @tsv
-    end
-  ' <<< "$threads"
-)
+  jq -cs '{alfredworkflow: {arg: map(.url + "\t" + .title)}}' <<< "$threads"
+}

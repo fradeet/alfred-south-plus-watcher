@@ -18,6 +18,6 @@ temporary_dir=$(mktemp -d "${TMPDIR:-/tmp}/alfred-workflow.XXXXXX")
 trap 'rm -rf "$temporary_dir"' EXIT
 temporary_file="$temporary_dir/workflow.alfredworkflow"
 
-(cd "$workflow_dir" && zip -q -r "$temporary_file" info.plist README.md play-new-asmr-cli entries -x '*.DS_Store')
+(cd "$workflow_dir" && zip -q -r "$temporary_file" info.plist README.md south-plus-cli entries -x '*.DS_Store')
 mv -f "$temporary_file" "$output_file"
 printf 'Created %s\n' "$output_file"
