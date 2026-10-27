@@ -13,21 +13,6 @@ flags:
     repeatable: true
 
 commands:
-  - name: get-html
-    help: Fetch a forum page and output HTML
-    dependencies: [curl, htmlq]
-    environment_variables:
-      - name: SOUTH_WINDUSER
-        help: Value of the eb9e6_winduser login Cookie
-      - name: SOUTH_COOKIE_FILE
-        help: Netscape-format Cookie file; takes precedence over SOUTH_WINDUSER
-      - name: SOUTH_USER_AGENT
-        help: Override the default browser User-Agent
-    flags:
-      - long: --fid
-        arg: id
-        help: Subforum ID
-        default: '208'
   - name: parse-thread-list
     help: Read HTML from stdin and output thread titles, dates and types
     dependencies: [htmlq, jq]
