@@ -24,6 +24,10 @@ commands:
       - name: SOUTH_USER_AGENT
         help: Override the default browser User-Agent
     flags:
+      - long: --fid
+        arg: id
+        help: Subforum ID (used when --url is omitted)
+        default: '208'
       - long: --url
         arg: url
         help: HTTPS page URL

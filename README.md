@@ -13,6 +13,9 @@ For keywords and instructions inside Alfred, see the [workflow README](alfred_wo
 
 ## Development
 
+Fetch a specific subforum with `play-new-asmr-cli get-html --fid 128`.
+The default subforum ID is `208`; `--url` overrides the subforum URL.
+
 ### Bashly CLI
 
 Install [Bashly](https://bashly.dev/) to generate the CLI while developing. You also need the runtime dependencies listed above:
