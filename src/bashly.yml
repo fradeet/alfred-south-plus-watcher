@@ -37,9 +37,3 @@ commands:
         help: Output format (alfred_json sets alfredworkflow.arg to URL-tab-title strings; text is tab-separated)
         default: alfred_json
         allowed: [text, json, alfred_json]
-  - name: notify
-    help: Read a JSON title/thread array from stdin and output matching titles
-    dependencies: [jq]
-    environment_variables:
-      - name: PNA_WATCH_LIST
-        help: Newline-separated, case-sensitive literal keywords
