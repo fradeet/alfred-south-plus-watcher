@@ -2,18 +2,22 @@
 set -euo pipefail
 
 workflow_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)
-# Alfred passes JSON as argv; notify reads stdin.
-input_from_arg=false
-if (($#)) && [[ $1 != -* ]]; then
-  json=$1
-  input_from_arg=true
+# Alfred expands alfredworkflow.arg into URL-tab-title arguments.
+threads=()
+while (($#)) && [[ $1 != -* ]]; do
+  if [[ $1 != *$'\t'* ]]; then
+    printf 'Error: Expected a URL and title separated by a tab.\n' >&2
+    exit 1
+  fi
+  threads+=("$1")
   shift
-fi
+done
+json=$(jq -cn --args '
+  $ARGS.positional | map(index("\t") as $tab |
+    {url: .[:$tab], title: .[$tab + 1:]})
+' -- "${threads[@]}")
 set -- notify "$@"
 if [[ ${alfred_debug:-0} == 1 ]]; then
   set -- -vv "$@"
 fi
-if [[ $input_from_arg == true ]]; then
-  exec "$workflow_dir/play-new-asmr-cli" "$@" <<< "$json"
-fi
-exec "$workflow_dir/play-new-asmr-cli" "$@"
+exec "$workflow_dir/play-new-asmr-cli" "$@" <<< "$json"
