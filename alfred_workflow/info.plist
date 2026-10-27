@@ -8,8 +8,32 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
+		<key>15934CBD-00D3-454F-A5A2-CEC6618186D6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1C12175E-3714-454B-9330-F345D7BDD0F3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>15934CBD-00D3-454F-A5A2-CEC6618186D6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>3BA11452-8344-4814-B477-0B224A469142</key>
 		<array>
 			<dict>
@@ -50,17 +74,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>availableviaurlhandler</key>
+				<key>concurrently</key>
 				<false/>
-				<key>triggerid</key>
-				<string>get-new</string>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>entries/alfred/notify.sh</string>
+				<key>type</key>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.trigger.external</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>3BA11452-8344-4814-B477-0B224A469142</string>
+			<string>15934CBD-00D3-454F-A5A2-CEC6618186D6</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -84,6 +116,21 @@
 			<string>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
+				<key>triggerid</key>
+				<string>get-new</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>3BA11452-8344-4814-B477-0B224A469142</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -136,17 +183,26 @@
 No Alfred keyword or action is configured yet.</string>
 	<key>uidata</key>
 	<dict>
+		<key>15934CBD-00D3-454F-A5A2-CEC6618186D6</key>
+		<dict>
+			<key>note</key>
+			<string>Filter</string>
+			<key>xpos</key>
+			<real>445</real>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
 		<key>1C12175E-3714-454B-9330-F345D7BDD0F3</key>
 		<dict>
 			<key>xpos</key>
-			<real>885</real>
+			<real>665</real>
 			<key>ypos</key>
 			<real>30</real>
 		</dict>
 		<key>2AAC6EAB-4570-4D9C-BA60-CC2D55C2E082</key>
 		<dict>
 			<key>note</key>
-			<string>Get thread HTML</string>
+			<string>Get thread list</string>
 			<key>xpos</key>
 			<real>225</real>
 			<key>ypos</key>
