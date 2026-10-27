@@ -12,10 +12,10 @@ south_base_url() {
 
 south_check_page() {
   local page=$1 title login challenge
-  [[ -s $page ]] || south_error 'The HTML input is empty.'
-  title=$(htmlq --filename "$page" --text title)
-  login=$(htmlq --filename "$page" --attribute name 'form[name="login"]')
-  challenge=$(htmlq --filename "$page" --attribute id '#challenge-form, #cf-challenge-running, #cf-wrapper')
+  [[ -n $page ]] || south_error 'The HTML input is empty.'
+  title=$(htmlq --text title <<< "$page")
+  login=$(htmlq --attribute name 'form[name="login"]' <<< "$page")
+  challenge=$(htmlq --attribute id '#challenge-form, #cf-challenge-running, #cf-wrapper' <<< "$page")
   case "${title,,}" in
     *'just a moment'*|*'attention required'*|*'access denied'*)
       south_error 'The site returned an access challenge or denial page.' ;;

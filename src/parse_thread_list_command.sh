@@ -1,30 +1,30 @@
 (
-  set -eEuo pipefail
-  trap 'printf "Error: Unable to parse the thread list.\n" >&2' ERR
+  set -euo pipefail
   base=$(south_base_url)
-  umask 077
-  work=$(mktemp -d)
-  trap 'rm -rf -- "$work"' EXIT
-  cat > "$work/page.html"
-  south_check_page "$work/page.html"
-  table=$(htmlq -f "$work/page.html" --attribute id 'table#ajaxtable')
+  page=$(cat)
+  south_check_page "$page"
+  table=$(htmlq --attribute id 'table#ajaxtable' <<< "$page")
   [[ $table == ajaxtable ]] || south_error 'No PHPWind thread-list table was found.'
-  htmlq -f "$work/page.html" --attribute id '#ajaxtable tr.tr3 a[id^="a_ajax_"]' > "$work/ids"
-  htmlq -f "$work/page.html" --attribute href '#ajaxtable tr.tr3 h3 a[href*="read.php?"]' > "$work/links"
-  id_count=$(jq -Rs 'split("\n") | map(select(length > 0)) | length' "$work/ids")
-  link_count=$(jq -Rs 'split("\n") | map(select(length > 0)) | length' "$work/links")
-  [[ $id_count == "$link_count" ]] || south_error 'Some thread titles are missing their expected IDs.'
-  jq -Rse 'split("\n") | map(select(length > 0)) | length == (unique | length)' \
-    "$work/ids" >/dev/null || south_error 'Duplicate thread IDs were found.'
-  : > "$work/threads.jsonl"
+  ids=$(htmlq --attribute id '#ajaxtable tr.tr3 a[id^="a_ajax_"]' <<< "$page")
+  links=$(htmlq --attribute href '#ajaxtable tr.tr3 h3 a[href*="read.php?"]' <<< "$page")
+  issue=$(jq -nr --arg ids "$ids" --arg links "$links" '
+    def lines: split("\n") | map(select(length > 0));
+    ($ids | lines) as $ids | ($links | lines) as $links |
+    if ($ids | length) != ($links | length) then "Some thread titles are missing their expected IDs."
+    elif ($ids | length) != ($ids | unique | length) then "Duplicate thread IDs were found."
+    else empty end
+  ')
+  [[ -z $issue ]] || south_error "$issue"
+  threads=
   while IFS= read -r id; do
+    [[ -n $id ]] || continue
     [[ $id =~ ^a_ajax_([0-9]+)$ ]] || south_error 'Invalid thread ID.'
     tid=${BASH_REMATCH[1]}
     cell="#ajaxtable td#td_$tid"
-    title=$(htmlq -f "$work/page.html" --text "$cell h3 a#$id")
-    date=$(htmlq -f "$work/page.html" --text "$cell + td > div.f10.gray2")
-    url=$(htmlq -f "$work/page.html" --base "$base" --attribute href "$cell h3 a#$id")
-    marker=$(htmlq -f "$work/page.html" --attribute src "$cell img[title=\"置顶帖标志\"]")
+    title=$(htmlq --text "$cell h3 a#$id" <<< "$page")
+    date=$(htmlq --text "$cell + td > div.f10.gray2" <<< "$page")
+    url=$(htmlq --base "$base" --attribute href "$cell h3 a#$id" <<< "$page")
+    marker=$(htmlq --attribute src "$cell img[title=\"置顶帖标志\"]" <<< "$page")
     type=normal
     level=null
     if [[ -n $marker ]]; then
@@ -32,7 +32,7 @@
       type=pinned
       level=$((10#${BASH_REMATCH[1]}))
     fi
-    jq -cen --arg title "$title" --arg date "$date" --arg url "$url" \
+    thread=$(jq -cen --arg title "$title" --arg date "$date" --arg url "$url" \
       --arg type "$type" --argjson level "$level" '
       def trim: gsub("^\\s+|\\s+$"; "");
       def valid_date:
@@ -46,13 +46,14 @@
       select(.title != "" and
         (.published_date | valid_date) and
         (.url | test("^https?://[^\\s]+$")))
-    ' >> "$work/threads.jsonl" || south_error "Missing or invalid fields for thread $tid."
-  done < "$work/ids"
+    ') || south_error "Missing or invalid fields for thread $tid."
+    threads+="$thread"$'\n'
+  done <<< "$ids"
   # Distinguish an empty list from a changed layout.
-  if [[ ! -s $work/ids ]]; then
-    links=$(htmlq -f "$work/page.html" --attribute href '#ajaxtable tr.tr3 a[href*="read.php?"]')
+  if [[ -z $ids ]]; then
+    links=$(htmlq --attribute href '#ajaxtable tr.tr3 a[href*="read.php?"]' <<< "$page")
     [[ -z $links ]] || south_error 'Thread links were found without the expected title IDs.'
-    header=$(htmlq -f "$work/page.html" --text '#ajaxtable tr.tr2')
+    header=$(htmlq --text '#ajaxtable tr.tr2' <<< "$page")
     [[ $header == *文章* && $header == *作者* ]] || south_error 'Unrecognized thread-list layout.'
   fi
   jq -csr --arg format "${args[--output-format]}" '
@@ -60,6 +61,5 @@
     elif $format == "json" then .
     else .[] | [.title, .published_date, .thread_type, .pin_level, .url] | @tsv
     end
-  ' "$work/threads.jsonl" > "$work/result"
-  cat "$work/result"
+  ' <<< "$threads"
 )
