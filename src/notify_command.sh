@@ -1,6 +1,6 @@
 (
   set -euo pipefail
-  jq -sr --arg watch "${PNA_WATCH_LIST:-}" '
+  jq -csr --arg watch "${PNA_WATCH_LIST:-}" '
     if length != 1 then error("Expected one JSON array") else .[0] end |
     ($watch | split("\n") | map(gsub("^\\s+|\\s+$"; "")) |
       map(select(length > 0)) | unique) as $keywords |
