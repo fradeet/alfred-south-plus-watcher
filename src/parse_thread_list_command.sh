@@ -56,7 +56,8 @@
     [[ $header == *文章* && $header == *作者* ]] || south_error 'Unrecognized thread-list layout.'
   fi
   jq -csr --arg format "${args[--output-format]}" '
-    if $format == "json" then .
+    if $format == "alfred_json" then {alfredworkflow: {arg: map(.url + "\t" + .title)}}
+    elif $format == "json" then .
     else .[] | [.title, .published_date, .thread_type, .pin_level, .url] | @tsv
     end
   ' "$work/threads.jsonl" > "$work/result"
