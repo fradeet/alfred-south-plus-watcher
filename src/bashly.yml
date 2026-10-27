@@ -2,6 +2,11 @@ name: south-plus-cli
 help: Fetch and parse forum threads for Play New ASMR
 version: 0.1.0
 
+dependencies:
+  - curl
+  - htmlq
+  - jq
+
 environment_variables:
   - name: SP_BASE_URL
     help: Shared forum base URL (default https://spring-plus.net/)
