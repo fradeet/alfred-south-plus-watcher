@@ -1,7 +1,11 @@
 (
   set -eEuo pipefail
   trap 'printf "Error: Unable to fetch HTML.\n" >&2' ERR
-  url=${args[--url]}
+  url=${args[--url]:-}
+  if [[ -z $url ]]; then
+    base=$(south_base_url)
+    url=${base}thread.php?fid-208.html
+  fi
   [[ $url =~ ^https://([a-zA-Z0-9.-]+)(:[0-9]+)?(/[^[:space:]]*)?$ ]] ||
     south_error 'Use an HTTPS URL without credentials or whitespace.'
   host=${BASH_REMATCH[1]}

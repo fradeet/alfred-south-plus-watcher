@@ -1,9 +1,7 @@
 (
   set -eEuo pipefail
   trap 'printf "Error: Unable to parse the thread list.\n" >&2' ERR
-  base=${args[--base-url]}
-  [[ $base =~ ^https?://[a-zA-Z0-9.-]+(:[0-9]+)?/[^[:space:]]*$ ]] ||
-    south_error 'Use an HTTP(S) base URL without credentials or whitespace.'
+  base=$(south_base_url)
   umask 077
   work=$(mktemp -d)
   trap 'rm -rf -- "$work"' EXIT

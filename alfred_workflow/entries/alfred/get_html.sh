@@ -7,6 +7,7 @@ if (($#)) && [[ -z $1 ]]; then
   shift
 fi
 if [[ ${alfred_debug:-0} == 1 ]]; then
-  exec "$workflow_dir/play-new-asmr-cli" -vv get-html --url 'https://spring-plus.net/thread.php?fid-128.html' "$@"
+  base=${SOUTH_BASE_URL:-https://spring-plus.net/}
+  exec "$workflow_dir/play-new-asmr-cli" -vv get-html --url "${base%/}/thread.php?fid-128.html" "$@"
 fi
 exec "$workflow_dir/play-new-asmr-cli" get-html "$@"

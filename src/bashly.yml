@@ -2,6 +2,10 @@ name: play-new-asmr-cli
 help: Fetch and parse forum threads for Play New ASMR
 version: 0.1.0
 
+environment_variables:
+  - name: SOUTH_BASE_URL
+    help: Shared forum base URL (default https://spring-plus.net/)
+
 flags:
   - long: --verbose
     short: -v
@@ -23,7 +27,6 @@ commands:
       - long: --url
         arg: url
         help: HTTPS page URL
-        default: https://spring-plus.net/thread.php?fid-208.html
   - name: parse-thread-list
     help: Read HTML from stdin and output thread titles, dates and types
     dependencies: [htmlq, jq]
@@ -33,10 +36,6 @@ commands:
         help: Output format (text is tab-separated)
         default: json
         allowed: [text, json]
-      - long: --base-url
-        arg: url
-        help: Base URL for thread links
-        default: https://spring-plus.net/
   - name: notify
     help: Read a JSON title/thread array from stdin and output matching titles
     dependencies: [jq]
